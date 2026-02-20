@@ -112,7 +112,7 @@ Expected: 200 and `{"status": "accepted", "correlation_id": "<uuid>"}`. Without 
 ---
 
 ## 6. Redis
--
+
 In the current PoC, Redis is **not used** in code - only in `docker-compose` and config for the target architecture.
 
 In the described design, Redis is used for: **queue** (fast webhook response and async processing), **idempotency** (avoid processing the same update twice), **context cache** (worker hits PostgreSQL less often). Until the worker and queue exist, Redis can be removed from `docker-compose` or kept for consistency with the description.
